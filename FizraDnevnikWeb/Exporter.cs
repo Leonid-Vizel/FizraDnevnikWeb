@@ -87,17 +87,17 @@ public sealed class Exporter
                 sheet.Cell(77, 9).Value = model.RuffieRelax;
             }
 
-            if (model.RuffieBefore != null)
+            if (model.Norma1 != null)
             {
-                sheet.Cell(160, 73).Value = model.RuffieBefore;
+                sheet.Cell(160, 73).Value = model.Norma1;
             }
-            if (model.RuffieAfter != null)
+            if (model.Norma2 != null)
             {
-                sheet.Cell(165, 73).Value = model.RuffieAfter;
+                sheet.Cell(165, 73).Value = model.Norma2;
             }
-            if (model.RuffieRelax != null)
+            if (model.Norma3 != null)
             {
-                sheet.Cell(170, 73).Value = model.RuffieRelax;
+                sheet.Cell(170, 73).Value = model.Norma3;
             }
 
             using (MemoryStream memStream = new MemoryStream())
