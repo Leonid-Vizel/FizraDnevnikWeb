@@ -1,0 +1,44 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<h5 class="display-6 text-center">Заполните данные для получения готового файла дневника самоконтроля</h5>
+<hr />
+<form method="post">
+    <h4 class="text-center">Общая информация</h4>
+    <input-group asp-for="AA17" />
+    <input-group asp-for="Group" />
+    <hr />
+    <h4 class="text-center">Показатели физического развития</h4>
+    <input-group asp-for="Height" />
+    <input-group asp-for="Weight" />
+    <input-group asp-for="FatPercent" />
+    <input-group asp-for="MusclePercent" />
+    <input-group asp-for="IMT" />
+    <hr />
+    <h4 class="text-center">Давление и пульс</h4>
+    <input-group asp-for="PulsePressureDate" />
+    <input-group asp-for="Pulse" />
+    <input-group asp-for="Pressure" />
+    <hr />
+    <h4 class="text-center">Ортостатическая проба</h4>
+    <input-group asp-for="OrtostatDate" />
+    <input-group asp-for="OrtostatLayingPulse" />
+    <input-group asp-for="OrtostatStandingPulse" />
+    <input-group asp-for="OrtostatResult" />
+    <hr />
+    <h4 class="text-center">Тест Руффье</h4>
+    <input-group asp-for="RuffieDate" />
+    <input-group asp-for="RuffieBefore" />
+    <input-group asp-for="RuffieAfter" />
+    <input-group asp-for="RuffieRelax" />
+    <hr />
+    <h4 class="text-center">Нормативы</h4>
+    <input-group asp-for="Norma1" />
+    <input-group asp-for="Norma2" />
+    <input-group asp-for="Norma3" />
+    <hr />
+    <button class="btn btn-success w-100" type="submit">Создать файл</button>
+</form>
