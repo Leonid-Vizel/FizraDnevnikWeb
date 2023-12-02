@@ -6,7 +6,9 @@ using Weasel.Export.AspNetCore;
 
 namespace FizraDnevnikWeb.Pages;
 
-public class IndexModel : PageModel
+[ValidateAntiForgeryToken]
+[ResponseCache(VaryByHeader = "User-Cached", Duration = 60)]
+public sealed class IndexModel : PageModel
 {
     [BindProperty]
     [MaxLength(200, ErrorMessage = "Максимальная длина - {0} символов!")]

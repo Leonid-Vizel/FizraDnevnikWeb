@@ -1,17 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc.RazorPages;
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace FizraDnevnikWeb.Pages;
 
-public class PrivacyModel : PageModel
-{
-    private readonly ILogger<PrivacyModel> _logger;
-
-    public PrivacyModel(ILogger<PrivacyModel> logger)
-    {
-        _logger = logger;
-    }
-
-    public void OnGet()
-    {
-    }
-}
+[IgnoreAntiforgeryToken]
+[ResponseCache(VaryByHeader = "User-Cached", Duration = 60)]
+public sealed class PrivacyModel : PageModel { }

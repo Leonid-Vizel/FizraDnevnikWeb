@@ -4,12 +4,19 @@
     <TargetFramework>net8.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+    <ServerGarbageCollection>true</ServerGarbageCollection>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="ClosedXML" Version="0.102.1" />
     <PackageReference Include="Weasel.Export.AspNetCore" Version="8.0.2" />
     <PackageReference Include="Weasel.TagHelpers" Version="8.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="pattern.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>
