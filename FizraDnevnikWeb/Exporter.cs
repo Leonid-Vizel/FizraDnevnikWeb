@@ -7,6 +7,7 @@ public sealed class Exporter
 {
     public byte[] Export(IndexModel model)
     {
+        byte[] array;
         using (XLWorkbook book = new XLWorkbook("pattern.xlsx"))
         {
             var sheet = book.Worksheet(1);
@@ -115,8 +116,12 @@ public sealed class Exporter
             using (MemoryStream memStream = new MemoryStream())
             {
                 book.SaveAs(memStream);
-                return memStream.ToArray();
+                array = memStream.ToArray();
             }
         }
+        GC.Collect(2, GCCollectionMode.Aggressive, true, true);
+        GC.WaitForPendingFinalizers();
+        GC.Collect(2, GCCollectionMode.Aggressive, true, true);
+        return array;
     }
 }
