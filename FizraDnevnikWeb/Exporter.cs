@@ -9,7 +9,7 @@ public sealed class Exporter
     {
         using (XLWorkbook book = new XLWorkbook("pattern.xlsx"))
         {
-            var sheet = book.Worksheet(3);
+            var sheet = book.Worksheet(1);
             if (model.AA17 != null)
             {
                 sheet.Cell(17, 27).Value = model.AA17;
@@ -19,25 +19,27 @@ public sealed class Exporter
                 sheet.Cell(19, 27).Value = model.Group;
             }
 
+            int semesterCol = 70 + (int)model.Semester * 2;
+
             if (model.Height != null)
             {
-                sheet.Cell(9, 78).Value = model.Height;
+                sheet.Cell(9, semesterCol).Value = model.Height;
             }
             if (model.Weight != null)
             {
-                sheet.Cell(12, 78).Value = model.Weight;
+                sheet.Cell(12, semesterCol).Value = model.Weight;
             }
             if (model.FatPercent != null)
             {
-                sheet.Cell(15, 78).Value = model.FatPercent;
+                sheet.Cell(15, semesterCol).Value = model.FatPercent;
             }
             if (model.MusclePercent != null)
             {
-                sheet.Cell(18, 78).Value = model.MusclePercent;
+                sheet.Cell(18, semesterCol).Value = model.MusclePercent;
             }
             if (model.IMT != null)
             {
-                sheet.Cell(21, 78).Value = model.IMT;
+                sheet.Cell(21, semesterCol).Value = model.IMT;
             }
 
             if (model.PulsePressureDate != null)
@@ -87,17 +89,27 @@ public sealed class Exporter
                 sheet.Cell(77, 9).Value = model.RuffieRelax;
             }
 
+            semesterCol = model.Semester switch
+            {
+                Semester.First => 52,
+                Semester.Second => 57,
+                Semester.Third => 63,
+                Semester.Fourth => 68,
+                Semester.Fifth => 73,
+                _ => 78,
+            };
+
             if (model.Norma1 != null)
             {
-                sheet.Cell(160, 73).Value = model.Norma1;
+                sheet.Cell(160, semesterCol).Value = model.Norma1;
             }
             if (model.Norma2 != null)
             {
-                sheet.Cell(165, 73).Value = model.Norma2;
+                sheet.Cell(165, semesterCol).Value = model.Norma2;
             }
             if (model.Norma3 != null)
             {
-                sheet.Cell(170, 73).Value = model.Norma3;
+                sheet.Cell(170, semesterCol).Value = model.Norma3;
             }
 
             using (MemoryStream memStream = new MemoryStream())

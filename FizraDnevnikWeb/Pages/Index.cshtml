@@ -8,6 +8,7 @@
 <hr />
 <form method="post">
     <h4 class="text-center">Общая информация</h4>
+    <select-group asp-for="Semester" asp-items="@Html.GetEnumSelectList<Semester>()" />
     <input-group asp-for="AA17" />
     <input-group asp-for="Group" />
     <hr />

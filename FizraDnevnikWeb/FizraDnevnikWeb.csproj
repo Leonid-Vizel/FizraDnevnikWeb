@@ -5,6 +5,7 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <ServerGarbageCollection>true</ServerGarbageCollection>
+    <GarbageCollectionAdapatationMode>1</GarbageCollectionAdapatationMode>
   </PropertyGroup>
 
   <ItemGroup>

@@ -11,6 +11,11 @@ namespace FizraDnevnikWeb.Pages;
 public sealed class IndexModel : PageModel
 {
     [BindProperty]
+    [DisplayName("Семестр")]
+    [Required(ErrorMessage = "Укажите учебный семетр!")]
+    [Range(0, 5, ErrorMessage = "Укажите значение от I до VI")]
+    public Semester Semester { get; set; } = Semester.Fifth;
+    [BindProperty]
     [MaxLength(200, ErrorMessage = "Максимальная длина - {0} символов!")]
     [DisplayName("Ячейка АА17")]
     public string? AA17 { get; set; }
@@ -73,7 +78,7 @@ public sealed class IndexModel : PageModel
 
     [BindProperty]
     [MaxLength(200, ErrorMessage = "Максимальная длина - {0} символов!")]
-    [DisplayName("Поднимания туловища из положения лежа (кол-во повторов)")]
+    [DisplayName("Поднимания туловища из положения лежа (кол-во повторов) (ПРЕСС)")]
     public string? Norma1 { get; set; }
     [BindProperty]
     [MaxLength(200, ErrorMessage = "Максимальная длина - {0} символов!")]
@@ -110,4 +115,21 @@ public sealed class IndexModel : PageModel
         }
         return Task.FromResult(result);
     }
+}
+
+
+public enum Semester
+{
+    [Display(Name = "I (Курс 1)")]
+    First,
+    [Display(Name = "II (Курс 1)")]
+    Second,
+    [Display(Name = "III (Курс 2)")]
+    Third,
+    [Display(Name = "IV (Курс 2)")]
+    Fourth,
+    [Display(Name = "V (Курс 3)")]
+    Fifth,
+    [Display(Name = "VI (Курс 3)")]
+    Sixth
 }
